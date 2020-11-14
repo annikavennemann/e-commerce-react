@@ -12,7 +12,13 @@ function App() {
 
   function addUserProfile(userProfile) {
     setUserData([...userData, userProfile])
-    
+    fetch('http://e-commerce.local/api/create-user', {
+        method: 'POST',
+        // We convert the React state to JSON and send it as the POST body
+        body: JSON.stringify(userProfile)
+      }).then(response => response.json()
+      );
+
   }
 
   return (
