@@ -10,13 +10,20 @@ function App() {
   getUserData().then(userData => setUserData(userData))
   }, [])
 
-  function addUserProfile(journal) {
-    setUserData([...userData, journal])
+  function addUserProfile(userProfile) {
+    setUserData([...userData, userProfile])
+    
   }
 
   return (
     <>
       <RegisterForm onSubmit={addUserProfile}/>
+      <ul>
+        {console.log(userData)}
+        {userData.map(user => <li key={user.id}>{user.email}</li>
+
+        )}
+      </ul>
     </>
   );
 }
