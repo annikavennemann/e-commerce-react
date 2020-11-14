@@ -24,7 +24,7 @@ export default function RegisterForm({ onSubmit }) {
     
     return (
         <form action="/create-user" method="POST" onSubmit={handleSubmit}>
-            <h1>Register</h1>
+            <h2>Register</h2>
             <div>
             <label htmlFor="firstName">
                 <strong>First name</strong>

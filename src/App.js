@@ -1,6 +1,10 @@
 import RegisterForm from "./RegisterForm";
+import Header from "./Header";
 import { useState, useEffect } from 'react'
 import getUserData from './service/getUserData'
+import styled from 'styled-components/macro';
+
+
 
 
 function App() {
@@ -22,16 +26,47 @@ function App() {
   }
 
   return (
-    <>
-      <RegisterForm onSubmit={addUserProfile}/>
-      <ul>
-        {console.log(userData)}
-        {userData.map(user => <li key={user.id}>{user.email}</li>
+    <AppStyled>
+      <Header>{"<?= how to survive php"} </Header>
+      <MainGrid>
+        <RegisterForm onSubmit={addUserProfile}/>
+        <ul>
+          {console.log(userData)}
+          {userData.map(user => <li key={user.id}>{user.email}</li>
 
-        )}
-      </ul>
-    </>
+          )}
+        </ul>
+        <ul>
+          {console.log(userData)}
+          {userData.map(user => <li key={user.id}>{user.email}</li>
+
+          )}
+        </ul>
+        </MainGrid>
+    </AppStyled>
   );
 }
+
+const AppStyled = styled.div`
+  height: 100vh;
+  max-width: 600px;
+  position: relative;
+  width: 100%;
+  height: 100%;display: grid;
+  grid-template-rows: 70px auto;
+  max-width: 600px;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+`
+
+const MainGrid = styled.main`
+  overflow-y: scroll;
+  display: grid;
+  align-content: start;
+  gap: 20px;
+  padding: 20px 20px;
+`
 
 export default App;
