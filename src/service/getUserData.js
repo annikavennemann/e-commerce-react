@@ -1,4 +1,4 @@
 export default function getUserData() {
-    return fetch('http://register.local/api/users')
+    return fetch('http://e-commerce.local/')
       .then(res => res.json())
   }

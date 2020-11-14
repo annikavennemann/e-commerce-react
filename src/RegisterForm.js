@@ -5,7 +5,8 @@ export default function RegisterForm({ onSubmit }) {
     const [userProfile, setUserProfile] = useState({
         firstName: '',
         lastName: '',
-        email: ''
+        email: '',
+        password: ''
     });
 
     function handleSubmit(event) {
