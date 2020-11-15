@@ -1,11 +1,11 @@
 import RegisterForm from "./RegisterForm";
 import Header from "./Header";
-import ProductCard from "./ProductCard";
 import Button from "./Button";
 import { useState, useEffect } from 'react'
 import getUserData from './service/getUserData'
 import getProductsData from './service/getProductsData'
 import styled from 'styled-components/macro';
+import Filter from "./components/Filter";
 
 
 
@@ -37,19 +37,13 @@ function App() {
 
   }
 
-  function sendOrder(event) {
-    event.preventDefault()
-  }
+  
   
   return (
     <AppStyled>
       <Header>{"<?= how to survive php ?>"} </Header>
       <MainGrid>
-        
-        {console.log(products)}
-        {products.map(product => <ProductCard key={product.id} productDetails={product} /> )}
-       
-        <Button text={"zur Bestellung"} onSubmit={sendOrder}/>
+        <Filter products={products} />
 
         {/* <RegisterForm onSubmit={addUserProfile}/>
         <ul>
