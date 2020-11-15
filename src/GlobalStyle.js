@@ -8,7 +8,7 @@ export default createGlobalStyle`
     body {
         margin: 0;
         font-size: 112.5%;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: 'Courier New', Courier, monospace;
         background-color: #242424;
         color: limegreen;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -35,7 +35,7 @@ export default createGlobalStyle`
 
     h1 {
         margin:0;
-        font-size: 30px;
+        font-size: 28px;
         font-weight: 500;
     }
 

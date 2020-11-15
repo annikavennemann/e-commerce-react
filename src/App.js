@@ -27,7 +27,7 @@ function App() {
 
   return (
     <AppStyled>
-      <Header>{"<?= how to survive php"} </Header>
+      <Header>{"<?= how to survive php ?>"} </Header>
       <MainGrid>
         <RegisterForm onSubmit={addUserProfile}/>
         <ul>
