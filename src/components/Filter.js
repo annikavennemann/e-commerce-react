@@ -3,7 +3,7 @@ import {useState} from 'react'
 import OrderForm from './OrderForm'
 
 
-export default function Filter({products}) {
+export default function Filter({products, onSendOrder}) {
     const[filteredProducts, setFilteredProducts] = useState([])
     const filter = [...new Set(products.map(product => product.usability))]
     //const [formValue, setFormValue] = useState()
@@ -18,7 +18,7 @@ export default function Filter({products}) {
                     {element}
                 </label>
             ))}
-            <OrderForm filteredProducts={filteredProducts}/>
+            <OrderForm filteredProducts={filteredProducts} onSendOrder={onSendOrder}/>
         </div>
         
     )

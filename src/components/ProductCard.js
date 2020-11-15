@@ -8,7 +8,7 @@ export default function ProductCard({productDetails, changeOrder}) {
         {
             productId: id,
             price: price,
-            quantity: ''
+            quantity: 0
         }
     )
    
@@ -19,12 +19,12 @@ export default function ProductCard({productDetails, changeOrder}) {
             ...singleItem,
             [event.target.name]: event.target.value
         })
-        console.log(singleItem)
-    }
-
-    function handleClick() {
         changeOrder(singleItem)
     }
+
+    // function handleClick() {
+    //     changeOrder(singleItem)
+    // }
 
     return <CardWrapper>
             <h2>{name}</h2>
@@ -40,7 +40,7 @@ export default function ProductCard({productDetails, changeOrder}) {
                     onChange={onChange}
                     value={singleItem.quantity}/>
             </label>
-            <button onClick={handleClick}>OK</button>
+            {/* <button onClick={handleClick}>OK</button> */}
         </CardWrapper>
 
 }

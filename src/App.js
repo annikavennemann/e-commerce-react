@@ -13,6 +13,7 @@ import Filter from "./components/Filter";
 function App() {
   const [userData, setUserData] = useState([])
   const [products, setProducts] = useState([])
+  const [orderedItems, setOrderedItems] = useState([])
 
   useEffect(() => {
   getUserData().then(userData => setUserData(userData))
@@ -21,7 +22,6 @@ function App() {
   useEffect(() => {
     getProductsData()
     .then(function(data) {
-      console.log(data)
       setProducts(data)
     })
   },[])
@@ -37,7 +37,9 @@ function App() {
 
   }
 
-  
+  function onSendOrder(orderedItems) {
+    setOrderedItems(orderedItems)
+  }
   
   return (
     <Router>
@@ -46,10 +48,11 @@ function App() {
         <MainGrid>
         <Switch>
           <Route path="/order">
-            <RegisterForm onSubmit={addUserProfile}/>
+            {console.log(orderedItems)}
+            <RegisterForm onSubmit={addUserProfile} orderedItems={orderedItems} />
           </Route>
           <Route path="/">
-            <Filter products={products} />
+            <Filter products={products} onSendOrder={onSendOrder} />
           </Route>
         </Switch>
           
