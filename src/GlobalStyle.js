@@ -42,12 +42,18 @@ export default createGlobalStyle`
 
     h1 {
         margin:0;
-        font-size: 28px;
+        font-size: 150%;
         font-weight: 500;
     }
 
     h2 {
         margin:0;
+        font-size: 130%;
+        font-weight: 300;
+    }
+
+    p {
+        margin: 0;
     }
 
 `

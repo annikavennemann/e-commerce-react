@@ -4,21 +4,33 @@ export default function ProductCard({productDetails={id: 1, name: "Wein", price:
     const {name, price, description, usability} = productDetails
     return <CardWrapper>
             <h2>{name}</h2>
-            <p>{price} Euro</p>
+            <p>€ {price}</p>
             <p>{description}</p>
             <p>{usability}</p>
+            <label>Anzahl: <input type="number" min="0" max="10"/></label>
         </CardWrapper>
 
 }
 
 
-const CardWrapper = styled.header`
+const CardWrapper = styled.section`
+    display: grid;
     grid-template-columns: 1fr ;
     gap: 20px;
     padding: 15px;
     text-align: center;
     background-color: #242424;
-    box-shadow: 0 0 15px rgba(50, 205, 50, 0.1);
-    border-radius: 5px;
+    border-radius: 10px;
     opacity: 0.9;
+
+    input {
+        font-size: inherit;
+        padding: 2px;
+        border-color: limegreen;
+        border-radius: 5px;
+        background-color: #242424;
+        color: limegreen;
+        width: 40px;
+    }
+
 `
