@@ -41,7 +41,7 @@ function App() {
   
   return (
     <AppStyled>
-      <Header>{"<?= how to survive php ?>"} </Header>
+      <Header />
       <MainGrid>
         <Filter products={products} />
 
