@@ -1,9 +1,10 @@
 import styled from 'styled-components/macro'
+import HeaderImg from './assets/HeaderImgSimple.svg'
 
-export default function Header({children}) {
+export default function Header() {
 
     return <HeaderStyled>
-            <h1>{children}</h1>
+            <img src={HeaderImg} alt="" />
         </HeaderStyled>
 
 }
@@ -11,10 +12,15 @@ export default function Header({children}) {
 
 const HeaderStyled = styled.header`
     position: relative;
-    padding: 15px;
+    padding: 0.5em 1em;
     text-align: center;
+    height: 4em;
     background-color: #242424;
-    opacity: 0.9;
-    box-shadow: 0 3px 10px rgba(50, 205, 50, 0.1);
+
+    img {
+    top: 0.5em;
+    height: 50px;
+    width: auto;
+  }
 `
 
