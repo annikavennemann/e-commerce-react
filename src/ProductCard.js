@@ -1,13 +1,36 @@
 import styled from 'styled-components/macro'
+import { useState } from 'react'
 
 export default function ProductCard({productDetails={id: 1, name: "Wein", price: 12, description: "lecker", usability: "before-php"}}) {
     const {name, price, description, usability} = productDetails
+
+
+    const [productOrder, setProductOrder] = useState({
+        productName: name,
+        numberOfItems: ''
+    });
+
+    function onChange(event) {
+        setProductOrder({
+            ...productOrder,
+            [event.target.name]: event.target.value
+        })
+    }
+
     return <CardWrapper>
             <h2>{name}</h2>
             <p>€ {price}</p>
             <p>{description}</p>
             <p>{usability}</p>
-            <label>Anzahl: <input type="number" min="0" max="10"/></label>
+            <label>Anzahl: 
+                <input 
+                    type="number" 
+                    min="0" 
+                    max="10" 
+                    name="numberOfItems"
+                    onChange={onChange}
+                    value={productOrder.numberOfItems}/>
+            </label>
         </CardWrapper>
 
 }
@@ -30,7 +53,11 @@ const CardWrapper = styled.section`
         border-radius: 5px;
         background-color: #242424;
         color: limegreen;
-        width: 40px;
+        width: 35px;
+        text-align: center;
+        margin-left: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
     }
 
 `
