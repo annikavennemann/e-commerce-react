@@ -1,6 +1,6 @@
-import RegisterForm from "./RegisterForm";
+import RegisterForm from "./components/RegisterForm";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from "./Header";
-import Button from "./Button";
 import { useState, useEffect } from 'react'
 import getUserData from './service/getUserData'
 import getProductsData from './service/getProductsData'
@@ -40,21 +40,23 @@ function App() {
   
   
   return (
-    <AppStyled>
-      <Header />
-      <MainGrid>
-        <Filter products={products} />
-
-        {/* <RegisterForm onSubmit={addUserProfile}/>
-        <ul>
-          {console.log(userData)}
-          {userData.map(user => <li key={user.id}>{user.email}</li>
-
-          )}
-        </ul>
-         */}
-        </MainGrid>
-    </AppStyled>
+    <Router>
+      <AppStyled>
+        <Header />
+        <MainGrid>
+        <Switch>
+          <Route path="/order">
+            <RegisterForm onSubmit={addUserProfile}/>
+          </Route>
+          <Route path="/">
+            <Filter products={products} />
+          </Route>
+        </Switch>
+          
+          
+          </MainGrid>
+      </AppStyled>
+    </Router>
   );
 }
 
@@ -77,7 +79,7 @@ const MainGrid = styled.main`
   display: grid;
   align-content: start;
   gap: 20px;
-  padding: 20px 20px;
+  padding: 0;
 `
 
 export default App;
