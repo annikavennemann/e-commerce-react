@@ -10,14 +10,14 @@ export default createGlobalStyle`
         margin: 0;
         font-size: 112.5%;
         font-family: 'Courier New', Courier, monospace;
-        background-color: #242424;
-        color: limegreen;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: #141414;
+        color: #96CE7A;
+        font-family: sans-serif;
 
-        background-image: url(${background});
+        /* background-image: url(${background});
         background-size: cover;
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-attachment: fixed; */
     
     }
 

@@ -15,7 +15,7 @@ const HeaderStyled = styled.header`
     padding: 0.5em 1em;
     text-align: center;
     height: 4em;
-    background-color: #242424;
+    background-color: #141414;
 
     img {
     top: 0.5em;

@@ -14,11 +14,11 @@ const ButtonStyled = styled.button`
     padding: 15px;
     text-align: center;
     width: 250px;
-    background-color: limegreen;
-    opacity: 0.9;
+    background-color: #96CE7A;
     border: none;
     border-radius: 50px;
-    color: #242424;
+    color: white;
     font-size: inherit;
+    margin: 2em;
 `
 
