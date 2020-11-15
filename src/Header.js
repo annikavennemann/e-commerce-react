@@ -14,6 +14,7 @@ const HeaderStyled = styled.header`
     padding: 15px;
     text-align: center;
     background-color: #242424;
+    opacity: 0.9;
     box-shadow: 0 3px 10px rgba(50, 205, 50, 0.1);
 `
 

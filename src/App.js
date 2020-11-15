@@ -1,5 +1,6 @@
 import RegisterForm from "./RegisterForm";
 import Header from "./Header";
+import ProductCard from "./ProductCard";
 import { useState, useEffect } from 'react'
 import getUserData from './service/getUserData'
 import styled from 'styled-components/macro';
@@ -24,11 +25,13 @@ function App() {
       );
 
   }
-
+  
   return (
     <AppStyled>
       <Header>{"<?= how to survive php ?>"} </Header>
       <MainGrid>
+        <ProductCard key={1} /> 
+        <ProductCard key={2} /> 
         <RegisterForm onSubmit={addUserProfile}/>
         <ul>
           {console.log(userData)}

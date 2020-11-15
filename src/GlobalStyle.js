@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components/macro'
+import background from './assets/binary-code-background.png';
 
 export default createGlobalStyle`
     * {
@@ -12,6 +13,12 @@ export default createGlobalStyle`
         background-color: #242424;
         color: limegreen;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        background-image: url(${background});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    
     }
 
     button:focus, textarea:focus, input:focus{
