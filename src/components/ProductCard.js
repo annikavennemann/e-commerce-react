@@ -1,20 +1,29 @@
 import styled from 'styled-components/macro'
 import { useState } from 'react'
 
-export default function ProductCard({productDetails}) {
-    const {name, price, description, usability} = productDetails
+export default function ProductCard({productDetails, changeOrder}) {
+    const {id, name, price, description, usability} = productDetails
+    
+    const [singleItem, setSingleItem] = useState(
+        {
+            productId: id,
+            price: price,
+            quantity: ''
+        }
+    )
+   
 
-
-    const [productOrder, setProductOrder] = useState({
-        productName: name,
-        numberOfItems: ''
-    });
 
     function onChange(event) {
-        setProductOrder({
-            ...productOrder,
+        setSingleItem({
+            ...singleItem,
             [event.target.name]: event.target.value
         })
+        console.log(singleItem)
+    }
+
+    function handleClick() {
+        changeOrder(singleItem)
     }
 
     return <CardWrapper>
@@ -27,10 +36,11 @@ export default function ProductCard({productDetails}) {
                     type="number" 
                     min="0" 
                     max="10" 
-                    name="numberOfItems"
+                    name="quantity"
                     onChange={onChange}
-                    value={productOrder.numberOfItems}/>
+                    value={singleItem.quantity}/>
             </label>
+            <button onClick={handleClick}>OK</button>
         </CardWrapper>
 
 }
