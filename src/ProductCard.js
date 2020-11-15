@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import { useState } from 'react'
 
-export default function ProductCard({productDetails={id: 1, name: "Wein", price: 12, description: "lecker", usability: "before-php"}}) {
+export default function ProductCard({productDetails}) {
     const {name, price, description, usability} = productDetails
 
 

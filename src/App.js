@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard";
 import Button from "./Button";
 import { useState, useEffect } from 'react'
 import getUserData from './service/getUserData'
+import getProductsData from './service/getProductsData'
 import styled from 'styled-components/macro';
 
 
@@ -11,10 +12,19 @@ import styled from 'styled-components/macro';
 
 function App() {
   const [userData, setUserData] = useState([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
   getUserData().then(userData => setUserData(userData))
   }, [])
+
+  useEffect(() => {
+    getProductsData()
+    .then(function(data) {
+      console.log(data)
+      setProducts(data)
+    })
+  },[])
 
   function addUserProfile(userProfile) {
     setUserData([...userData, userProfile])
@@ -35,7 +45,10 @@ function App() {
     <AppStyled>
       <Header>{"<?= how to survive php ?>"} </Header>
       <MainGrid>
-        {Array(5).fill().map(product => <ProductCard key={1} /> )}
+        
+        {console.log(products)}
+        {products.map(product => <ProductCard key={product.id} productDetails={product} /> )}
+       
         <Button text={"zur Bestellung"} onSubmit={sendOrder}/>
 
         {/* <RegisterForm onSubmit={addUserProfile}/>
