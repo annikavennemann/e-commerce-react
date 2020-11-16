@@ -30,12 +30,29 @@ export default function OrderForm({filteredProducts, onSendOrder}) {
       }
 
     function setOrder(singleItem) {
-        setOrderedItems(
-            [
-                ...orderedItems,
-                singleItem
-            ]
-        )
+        console.log(singleItem.productId)
+        const filter = orderedItems.filter(item => item.productId === singleItem.productId)
+        console.log(filter)
+        if ( filter.length > 0 ) {
+            const index = orderedItems.findIndex(item => item.productId === singleItem.productId)
+            const orderedItemToChange = orderedItems[index]
+            setOrderedItems(
+                [
+                    ...orderedItems.slice(0, index),
+                    { ...orderedItemToChange, quantity: singleItem.quantity },
+                    ...orderedItems.slice(index + 1)
+                ]
+            )
+        } else {
+            console.log("Neues Item setzen")
+            setOrderedItems(
+                [
+                    ...orderedItems,
+                    singleItem
+                ]
+            )
+        }
+        console.log('Order ' + orderedItems.map(item => item))
     }
 
    

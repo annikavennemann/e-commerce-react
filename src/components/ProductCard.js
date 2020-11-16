@@ -22,9 +22,10 @@ export default function ProductCard({productDetails, changeOrder}) {
         })
     }
 
-    function handleClick(event) {
-        event.preventDefault()
-        changeOrder(singleItem)
+    function handleBlur() {
+        if (singleItem.quantity !== 0 && singleItem.quantity !== '0' && singleItem.quantity !== '') {
+            changeOrder(singleItem)
+        }
     }
 
     return <CardWrapper>
@@ -39,9 +40,9 @@ export default function ProductCard({productDetails, changeOrder}) {
                     max="10" 
                     name="quantity"
                     onChange={onChange}
+                    onBlur={handleBlur}
                     value={singleItem.quantity}/>
             </label>
-            <button onClick={handleClick}>OK</button>
         </CardWrapper>
 
 }
