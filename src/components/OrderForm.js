@@ -1,13 +1,18 @@
-import React from 'react'
 import ProductCard from './ProductCard'
 import Button from '../Button'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {useHistory} from "react-router-dom";
+import saveLocally from '../lib/saveLocally';
+import loadLocally from '../lib/loadLocally';
 
 
 export default function OrderForm({filteredProducts, onSendOrder}) {
-    const [orderedItems, setOrderedItems] = useState([])
+    const [orderedItems, setOrderedItems] = useState(loadLocally("orderedItems")??[])
     const history = useHistory();
+
+    useEffect(() => {
+        saveLocally("orderedItems", orderedItems)
+    },[orderedItems])
 
     return (
         <form onSubmit={sendOrder}>
@@ -21,7 +26,7 @@ export default function OrderForm({filteredProducts, onSendOrder}) {
     function sendOrder(event) {
         event.preventDefault()
         history.push("/order")
-        onSendOrder(orderedItems)
+        onSendOrder()
       }
 
     function setOrder(singleItem) {

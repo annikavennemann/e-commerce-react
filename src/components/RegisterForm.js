@@ -2,14 +2,17 @@ import React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 import Button from "../Button";
+import loadLocally from '../lib/loadLocally';
 
-export default function RegisterForm({ onSubmit, orderedItems }) {
+export default function RegisterForm({ onSubmit, savedItems }) {
     const [userProfile, setUserProfile] = useState({
         firstName: '',
         lastName: '',
         email: '',
         password: ''
     });
+
+    
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -28,7 +31,7 @@ export default function RegisterForm({ onSubmit, orderedItems }) {
         <>
         <h2>Bestellübersicht:</h2>
         <ul>
-            {orderedItems.map(item => <li>{item.name}, Anzahl: {item.quantity}</li>)}
+           {savedItems.map(item => <li>{item.name}, Anzahl: {item.quantity}</li>)}
         </ul>
         <Form action="/create-user" method="POST" onSubmit={handleSubmit}>
             <h2>Customer data</h2>

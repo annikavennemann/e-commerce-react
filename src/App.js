@@ -6,6 +6,7 @@ import getUserData from './service/getUserData'
 import getProductsData from './service/getProductsData'
 import styled from 'styled-components/macro';
 import Filter from "./components/Filter";
+import loadLocally from "./lib/loadLocally"
 
 
 
@@ -13,7 +14,8 @@ import Filter from "./components/Filter";
 function App() {
   const [userData, setUserData] = useState([])
   const [products, setProducts] = useState([])
-  const [orderedItems, setOrderedItems] = useState([])
+  // const [orderedItems, setOrderedItems] = useState([])
+  const [savedItems, setSavedItems] = useState([])
 
   useEffect(() => {
   getUserData().then(userData => setUserData(userData))
@@ -37,9 +39,17 @@ function App() {
 
   }
 
-  function onSendOrder(orderedItems) {
-    setOrderedItems(orderedItems)
-  }
+  // function onSendOrder(orderedItems) {
+  //   setOrderedItems(orderedItems)
+  // }
+
+
+    //setSavedOrder(loadLocally("orderedItems"))
+
+    function setSavedOrder() {
+        const savedOrder = loadLocally("orderedItems")
+        setSavedItems(savedOrder)
+    }
   
   return (
     <Router>
@@ -48,10 +58,10 @@ function App() {
         <MainGrid>
         <Switch>
           <Route path="/order">
-            <RegisterForm onSubmit={addUserProfile} orderedItems={orderedItems} />
+            <RegisterForm onSubmit={addUserProfile} savedItems={savedItems} />
           </Route>
           <Route path="/">
-            <Filter products={products} onSendOrder={onSendOrder} />
+            <Filter products={products} onSendOrder={setSavedOrder}/>
           </Route>
         </Switch>
           
