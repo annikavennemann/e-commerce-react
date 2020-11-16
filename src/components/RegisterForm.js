@@ -27,7 +27,7 @@ export default function RegisterForm({ onSubmit, orderedItems }) {
     return (
         <>
         <ul>
-    {orderedItems.map(item => <li>Product ID: {item.productId}, Anzahl: {item.quantity}</li>)}
+            {orderedItems.map(item => <li>{item.name}, Anzahl: {item.quantity}</li>)}
         </ul>
         <Form action="/create-user" method="POST" onSubmit={handleSubmit}>
             <h2>Customer data</h2>

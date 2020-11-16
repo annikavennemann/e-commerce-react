@@ -36,7 +36,8 @@ export default function OrderForm({filteredProducts, onSendOrder}) {
         // orderedItems.forEach((item, index)=> {
         //     if(item.productId === singleItem.productId) {
         //         setOrderedItems(
-        //             [orderedItems[index]]: singleItem
+        //             ...orderedItems,
+        //             [orderedItems.index]: singleItem
         //         )
         //     } else {
         //         setOrderedItems(
