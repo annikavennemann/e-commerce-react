@@ -1,8 +1,9 @@
 import styled from 'styled-components/macro'
 
-export default function Button({text, onSubmit}) {
+export default function Button({text, onSubmit, children}) {
 
     return <ButtonStyled onSubmit={onSubmit}>
+            {children}
             {text}
         </ButtonStyled>
 
