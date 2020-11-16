@@ -7,8 +7,9 @@ export default function ProductCard({productDetails, changeOrder}) {
     const [singleItem, setSingleItem] = useState(
         {
             productId: id,
+            name: name,
             price: price,
-            quantity: ''
+            quantity: 0
         }
     )
    
@@ -19,10 +20,10 @@ export default function ProductCard({productDetails, changeOrder}) {
             ...singleItem,
             [event.target.name]: event.target.value
         })
-        console.log(singleItem)
     }
 
-    function handleClick() {
+    function handleClick(event) {
+        event.preventDefault()
         changeOrder(singleItem)
     }
 

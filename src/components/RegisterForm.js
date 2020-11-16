@@ -3,7 +3,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import Button from "../Button";
 
-export default function RegisterForm({ onSubmit }) {
+export default function RegisterForm({ onSubmit, orderedItems }) {
     const [userProfile, setUserProfile] = useState({
         firstName: '',
         lastName: '',
@@ -25,6 +25,11 @@ export default function RegisterForm({ onSubmit }) {
     }
     
     return (
+        <>
+        <h2>Bestellübersicht:</h2>
+        <ul>
+            {orderedItems.map(item => <li>{item.name}, Anzahl: {item.quantity}</li>)}
+        </ul>
         <Form action="/create-user" method="POST" onSubmit={handleSubmit}>
             <h2>Customer data</h2>
                 <div>
@@ -83,6 +88,7 @@ export default function RegisterForm({ onSubmit }) {
                 <Button text={"kostenpflichtig bestellen"}/>
             </div>
         </Form>
+        </>
     )
 }
 
