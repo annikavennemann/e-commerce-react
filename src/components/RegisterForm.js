@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 import Button from "../Button";
-import loadLocally from '../lib/loadLocally';
+
 
 export default function RegisterForm({ onSubmit, savedItems }) {
     const [userProfile, setUserProfile] = useState({
@@ -17,7 +17,7 @@ export default function RegisterForm({ onSubmit, savedItems }) {
     function handleSubmit(event) {
         event.preventDefault()
         onSubmit(userProfile)
-        alert("Congrats! You are registered.")
+        alert("Congrats! Your Booster is on your Way. Happy Hacking!")
     }
 
     function onChange(event) {
@@ -29,10 +29,12 @@ export default function RegisterForm({ onSubmit, savedItems }) {
     
     return (
         <>
-        <h2>Bestellübersicht:</h2>
-        <ul>
-           {savedItems.map(item => <li>{item.name}, Anzahl: {item.quantity}</li>)}
-        </ul>
+        <Order>
+            <h2>Your Order</h2>
+            <ul>
+            {savedItems.map(item => <li>{item.name}, Anzahl: {item.quantity}</li>)}
+            </ul>
+        </Order>
         <Form action="/create-user" method="POST" onSubmit={handleSubmit}>
             <h2>Customer data</h2>
                 <div>
@@ -88,17 +90,36 @@ export default function RegisterForm({ onSubmit, savedItems }) {
 
 
             <div>
-                <Button text={"kostenpflichtig bestellen"}/>
+                <Button>&#128640; order</Button>
             </div>
         </Form>
         </>
     )
 }
 
+const Order = styled.div`
+    display: grid;
+    gap: 1.25rem;
+    width: 80%;
+    box-shadow: 0 2px 11px 0 rgba(25, 50, 81, 0.2);
+    background-color: #292929;
+    border-radius: 5px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
+    padding: 1em;
+    margin: 1.5em auto;
+    color: white;
+
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+    }
+`
+
+
 const Form = styled.form`
     display: grid;
     gap: 1.25rem;
-    max-width: 380px;
+    width: 80%;
     box-shadow: 0 2px 11px 0 rgba(25, 50, 81, 0.2);
     background-color: #292929;
     border-radius: 5px;
