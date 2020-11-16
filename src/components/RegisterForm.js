@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Button from "../Button";
 
 
-export default function RegisterForm({ onSubmit, savedItems }) {
+export default function RegisterForm({ savedItems }) {
     const [userProfile, setUserProfile] = useState({
         firstName: '',
         lastName: '',
@@ -12,12 +12,18 @@ export default function RegisterForm({ onSubmit, savedItems }) {
         password: ''
     });
 
-    
+    const [order, setOrder] = useState(
+        [savedItems, userProfile]
+    )
 
     function handleSubmit(event) {
         event.preventDefault()
-        onSubmit(userProfile)
-        alert("Congrats! Your Booster is on your Way. Happy Hacking!")
+        //onSubmit(userProfile)
+        
+        
+        sendOrder()
+        //alert("Congrats! Your Booster is on your Way. Happy Hacking!")
+        
     }
 
     function onChange(event) {
@@ -26,6 +32,25 @@ export default function RegisterForm({ onSubmit, savedItems }) {
             [event.target.name]: event.target.value
         })
     }
+
+    function sendOrder(userProfile) {
+        
+        fetch('http://e-commerce.local/api/order', {
+            method: 'POST',
+            // We convert the React state to JSON and send it as the POST body
+            body: JSON.stringify(order)
+          }).then(function(response){
+              response.json()
+                console.log(response)
+            }
+          );
+      }
+
+      function handleClick(event) {
+          event.preventDefault()
+          setOrder([order, userProfile])
+          console.log(order)
+      }
     
     return (
         <>
@@ -90,6 +115,7 @@ export default function RegisterForm({ onSubmit, savedItems }) {
 
 
             <div>
+                <Button onClick={handleClick}>register</Button>
                 <Button>&#128640; order</Button>
             </div>
         </Form>
