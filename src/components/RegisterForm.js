@@ -26,6 +26,7 @@ export default function RegisterForm({ onSubmit, orderedItems }) {
     
     return (
         <>
+        <h2>Bestellübersicht:</h2>
         <ul>
             {orderedItems.map(item => <li>{item.name}, Anzahl: {item.quantity}</li>)}
         </ul>

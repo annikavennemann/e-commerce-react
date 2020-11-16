@@ -31,24 +31,9 @@ export default function OrderForm({filteredProducts, onSendOrder}) {
                 singleItem
             ]
         )
-
-    //Test: if function, um doppelte Angabe von Produkten zu verhindern
-        // orderedItems.forEach((item, index)=> {
-        //     if(item.productId === singleItem.productId) {
-        //         setOrderedItems(
-        //             ...orderedItems,
-        //             [orderedItems.index]: singleItem
-        //         )
-        //     } else {
-        //         setOrderedItems(
-        //             [
-        //                 ...orderedItems,
-        //                 singleItem
-        //             ]
-        //         )
-        //     }
-
-        // })
     }
+
+   
+    
 }
 

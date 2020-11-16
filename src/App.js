@@ -48,7 +48,6 @@ function App() {
         <MainGrid>
         <Switch>
           <Route path="/order">
-            {console.log(orderedItems)}
             <RegisterForm onSubmit={addUserProfile} orderedItems={orderedItems} />
           </Route>
           <Route path="/">

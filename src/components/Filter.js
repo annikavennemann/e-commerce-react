@@ -24,8 +24,6 @@ export default function Filter({products, onSendOrder}) {
     )
 
     function handleChange(event){
-        console.log(event.target.value)
         setFilteredProducts(products.filter(product => product.usability === event.target.value))
-        console.log(filteredProducts)
     }
 }
