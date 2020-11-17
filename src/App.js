@@ -7,6 +7,7 @@ import getProductsData from './service/getProductsData'
 import styled from 'styled-components/macro';
 import Filter from "./components/Filter";
 import loadLocally from "./lib/loadLocally"
+import NewShit from "./components/NewShit";
 
 
 
@@ -59,6 +60,9 @@ function App() {
         <Switch>
           <Route path="/order">
             <RegisterForm onSubmit={addUserProfile} savedItems={savedItems} />
+          </Route>
+          <Route path="/product">
+            <NewShit/>
           </Route>
           <Route path="/">
             <Filter products={products} onSendOrder={setSavedOrder}/>
